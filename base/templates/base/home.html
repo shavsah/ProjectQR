@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+
+<br><br>
+<div align="center">
+    {% if user.is_authenticated %}
+    <table class="center" border="1px">
+
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Email Address</th>
+        <th>Address</th>
+        <th>QR code</th>
+
+        {% for q in obj %}
+        <tr>
+            <td>{{q.first_name}}</td>
+            <td>{{q.last_name}}</td>
+            <td>{{q.phone_number}}</td>
+            <td>{{q.email}}</td>
+            <td>{{q.address}}</td>
+            <td><img src="{{q.qr_image.url}}" alt="No image" width="50"></td>
+
+        </tr>
+
+        {% endfor %}
+    </table>
+    {% else %}
+    <h1>Please Sign Up or Log in to your profile to be able to check all users with their QR codes available in our
+        website</h1>
+    {% endif %}
+</div>
+
+
+</body>
+</html>
+
+{% endblock %}

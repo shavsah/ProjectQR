@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your QR Code</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Your personal QR code</h1>
+</div>
+
+<div align="center">
+    {% if user.is_authenticated %}
+    <img src="/media/{{request.user.username}}.png" alt="No image" width="300">
+<div>
+    <button class="btn btn-success"><a href="/save_path">Save</a></button>
+</div>
+    {% endif %}
+
+
+</body>
+</html>
+{% endblock %}

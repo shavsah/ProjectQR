@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Data Form</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+<br>
+<div align="center">
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button value="save" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+{% else %}
+<br><br>
+<div align="center">
+    <h1>You need to log in to see all users</h1>
+</div>
+{% endif %}
+
+</body>
+</html>
+
+{% endblock %}

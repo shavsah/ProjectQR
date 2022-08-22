@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Please fill in the fields to login to your account</h1>
+<dev>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p }}
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+</dev>
+
+</body>
+</html>
+{% endblock %}
